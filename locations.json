@@ -1,0 +1,117 @@
+{
+    "parkhaeuser": [
+      {
+        "id": 0,
+        "location": {
+          "breitengrad": 47.5506254,
+          "laengengrad": 7.5874932
+        }
+      },
+      {
+        "id": 1,
+        "location": {
+          "breitengrad": 47.5524554,
+          "laengengrad": 7.5858936
+        }
+      },
+      {
+        "id": 2,
+        "location": {
+          "breitengrad": 47.5592347,
+          "laengengrad": 7.58658
+        }
+      },
+      {
+        "id": 3,
+        "location": {
+          "breitengrad": 47.5651794,
+          "laengengrad": 7.6089067
+        }
+      },
+      {
+        "id": 4,
+        "location": {
+          "breitengrad": 47.5607142,
+          "laengengrad": 7.594263
+        }
+      },
+      {
+        "id": 5,
+        "location": {
+          "breitengrad": 47.5468617,
+          "laengengrad": 7.5929374
+        }
+      },
+      {
+        "id": 6,
+        "location": {
+          "breitengrad": 47.547299,
+          "laengengrad": 7.5922975
+        }
+      },
+      {
+        "id": 7,
+        "location": {
+          "breitengrad": 47.5458851,
+          "laengengrad": 7.5884556
+        }
+      },
+      {
+        "id": 8,
+        "location": {
+          "breitengrad": 47.5515968,
+          "laengengrad": 7.593512
+        }
+      },
+      {
+        "id": 9,
+        "location": {
+          "breitengrad": 47.563241,
+          "laengengrad": 7.602175
+        }
+      },
+      {
+        "id": 10,
+        "location": {
+          "breitengrad": 47.5630411,
+          "laengengrad": 7.5967098
+        }
+      },
+      {
+        "id": 11,
+        "location": {
+          "breitengrad": 47.5639644,
+          "laengengrad": 7.5946604
+        }
+      },
+      {
+        "id": 12,
+        "location": {
+          "breitengrad": 47.561101,
+          "laengengrad": 7.5824076
+        }
+      },
+      {
+        "id": 13,
+        "location": {
+          "breitengrad": 47.5622725,
+          "laengengrad": 7.5917937
+        }
+      },
+      {
+        "id": 14,
+        "location": {
+          "breitengrad": 47.5504299,
+          "laengengrad": 7.5943046
+        }
+      },
+      {
+        "id": 15,
+        "location": {
+          "breitengrad": 47.5545146,
+          "laengengrad": 7.5927014
+        }
+      }
+    ]
+  }
+  
