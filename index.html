@@ -3,11 +3,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basel Parkhäuser</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main>
-        <button onclick="getLocation()">Suchen</button>
-        <p id="output"></p>
+        <h1>Parkhäuser in der Nähe</h1>
+        <button id="button" onclick="getLocation()">Suchen</button>
+        <div id="output"></div>
+        <div id="parkhaeuser-list"></div>
     </main>
     <script src="script.js"></script>
 </body>

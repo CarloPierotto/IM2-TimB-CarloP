@@ -16,19 +16,12 @@ fetch('locations.json')
 
 // Funktion zum Ermitteln des Standorts
 function getLocation() {
-    if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-      document.getElementById("output").innerText = "Geolocation wird von diesem Browser nicht unterstützt.";
-    }
   }
 
   function showPosition(position) {
   const lat = position.coords.latitude;
   const lon = position.coords.longitude;
-
-  document.getElementById("output").innerText =
-    "Breitengrad: " + lat + "\nLängengrad: " + lon;
 
   // Schritt 1: Berechne die (vereinfachte) Distanz für jedes Parkhaus
   const distanzen = parkhausData.map(ph => {
@@ -42,8 +35,10 @@ function getLocation() {
   distanzen.sort((a, b) => a.distanz - b.distanz);
 
   // Schritt 3: Gib die 3 nächsten Parkhäuser aus
-  console.log("Die 3 nächsten Parkhäuser:");
+  document.getElementById("button").style.display = "none";
+  const parkhaeuserList = document.getElementById("parkhaeuser-list");
+
   distanzen.slice(0, 3).forEach(ph => {
-    console.log(`ID: ${ph.id}, Distanz: ${ph.distanz.toFixed(8)}`);
+    parkhaeuserList.innerHTML += `<div class="parkhaeuser"><p>ID: ${ph.id}, Distanz: ${ph.distanz.toFixed(8)}</p></div>`;
   });
 }
