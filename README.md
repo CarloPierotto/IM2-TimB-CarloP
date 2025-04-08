@@ -2,5 +2,4 @@
 Hoi Tim
 
 Carlo wie gahts?
-soo carlo$
-Moin
+Super Tim. Säber?
