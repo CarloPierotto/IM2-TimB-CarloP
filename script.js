@@ -1,3 +1,11 @@
+function setProgress(id, wert) {
+  const bar = document.querySelector(`#ph_${id} #progressBar`);
+  const prozent = document.querySelector(`#ph_${id} #prozentanzeige`);
+
+  bar.style.width = wert + "%";
+  prozent.innerText = "Auslastung: " + wert + "%";
+}
+
 //Variable parkahusData definieren
 let parkhausData = []; // global definieren
 
@@ -45,11 +53,16 @@ function getLocation() {
   .then(res => res.json())
   .then(data => {
     distanzen.slice(0, 3).forEach(ph => {
-      parkhaeuserList.innerHTML += `<div class="parkhaeuser"><p>${data.results[ph.id].title}, Auslastung: ${Math.round(data.results[ph.id].auslastung * 100)}%</p></div>`;
+      parkhaeuserList.innerHTML += `<div class="parkhaeuser" id="ph_${ph.id}"><h2>${data.results[ph.id].title}</h2><span id="prozentanzeige">Auslastung: ${Math.round(data.results[ph.id].auslastung * 100)}%</span><div class="progress-container"><div class="progress-bar" id="progressBar"></div></div></div>`;
       console.log("id:", ph.id);
+      setProgress(ph.id, Math.round(data.results[ph.id].auslastung * 100));//Prozentanzeige bestimmen
     });
   })
   .catch(err => {
     console.error("Fehler beim Abrufen:", err);
   });
 }
+
+
+
+

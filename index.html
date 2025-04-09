@@ -7,13 +7,18 @@
 </head>
 <body>
     <main>
-        <h1>Parkhäuser in der Nähe</h1>
+        <h1>Baasl Paakhuus</h1>
         <div class="parkhaeuser">
             <h2>Parkhaus Kunstmuseum</h2>
-            <p>Auslastung: 67%</p>
+            <span id="prozentanzeige">Auslastung: 0%</span>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p>Offen</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=47.5592347,7.58658">Route</a>
+            <p>Freie Plätze: 305</p>
         </div>
-        
-        
+          
         <button id="button" onclick="getLocation()">Suchen</button>
         <div id="output"></div>
         <div id="parkhaeuser-list"></div>

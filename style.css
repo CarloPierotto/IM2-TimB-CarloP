@@ -3,8 +3,29 @@ body{
 }
 
 .parkhaeuser{
-    background-color: #a39191;
+    background-color: #7F8086;
     padding: 20px;
     border-radius: 5px;
     margin: 20px;
+}
+
+h2{
+    color: #055394;
+    
+}
+
+.progress-container {
+  width: 100%;
+  background-color: #eee;
+  border-radius: 10px;
+  height: 20px;
+  margin-bottom: 5px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #4caf50;
+  border-radius: 10px;
+  transition: width 0.3s ease;
 }
