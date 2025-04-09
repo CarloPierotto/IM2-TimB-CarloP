@@ -1,6 +1,2 @@
 # IM2-TimB-CarloP
-Hoi Tim
-
-Carlo wie gahts?
-Super Tim. Säber?
-test
+Finde in Basel den nächsten Parkplatz

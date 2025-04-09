@@ -89,7 +89,8 @@ function showPosition(position) {
             <h2>${apiInfo.title}</h2>
             <span id="prozentanzeige">Auslastung: ${auslastung}%</span>
             <div class="progress-container">
-              <div class="progress-bar" id="progressBar"></div>
+                <img src="Bilder/Silhouette.svg" alt="Silhouette" class="Silhouette">
+                <div class="progress-bar" id="progressBar"></div>
             </div>
             <p>${apiInfo.status === "offen" ? "Offen" : "Geschlossen"}</p>
             <a href="https://www.google.com/maps/dir/?api=1&destination=${ph.location.breitengrad},${ph.location.laengengrad}">Route</a>

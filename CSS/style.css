@@ -7,6 +7,11 @@ body{
     padding: 20px;
     border-radius: 5px;
     margin: 20px;
+    width: 30vw;
+}
+
+.parkhaeuser-list{
+    flex-wrap: wrap;
 }
 
 h2{
@@ -17,15 +22,23 @@ h2{
 .progress-container {
   width: 100%;
   background-color: #eee;
-  border-radius: 10px;
-  height: 20px;
-  margin-bottom: 5px;
+  z-index: -2;
+  aspect-ratio: 200/68;
 }
 
 .progress-bar {
   height: 100%;
   width: 0%;
-  background-color: #4caf50;
-  border-radius: 10px;
-  transition: width 0.3s ease;
+  background-color: #172D3F;
+  transition: width 1s ease;
+  z-index: -1;
+}
+
+.Silhouette{
+  Width: 30vw;
+  position: absolute;
+}
+
+svg{
+  fill: #172D3F;
 }
