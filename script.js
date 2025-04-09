@@ -1,68 +1,107 @@
+// ========================================
+// Fortschrittsbalken für Auslastung setzen
+// ========================================
 function setProgress(id, wert) {
   const bar = document.querySelector(`#ph_${id} #progressBar`);
   const prozent = document.querySelector(`#ph_${id} #prozentanzeige`);
 
-  bar.style.width = wert + "%";
-  prozent.innerText = "Auslastung: " + wert + "%";
+  if (bar && prozent) {
+    bar.style.width = wert + "%";
+    prozent.innerText = `Auslastung: ${wert}%`;
+  }
 }
 
-//Variable parkahusData definieren
-let parkhausData = []; // global definieren
+// ========================================
+// Globale Variable zum Speichern der Daten
+// ========================================
+let parkhausData = [];
 
-// JSON-Datei laden und in die Variable parkhausData speichern
-fetch('locations.json')
-  .then(response => response.json())
-  .then(data => {
-    parkhausData = data.parkhaeuser; // global befüllen
-    data.parkhaeuser.forEach(ph => {
-      console.log(`ID: ${ph.id}, Breitengrad: ${ph.location.breitengrad}, Längengrad: ${ph.location.laengengrad}`);
-    });
-  })
-  .catch(error => {
-    console.error('Fehler beim Laden der JSON-Datei:', error);
-  });
-
-// Funktion zum Ermitteln des Standorts
-function getLocation() {
-      navigator.geolocation.getCurrentPosition(showPosition);
-  }
-
-  function showPosition(position) {
-  const lat = position.coords.latitude;
-  const lon = position.coords.longitude;
-
-  // Schritt 1: Berechne die (vereinfachte) Distanz für jedes Parkhaus
-  const distanzen = parkhausData.map(ph => {
-    const dx = lon - ph.location.laengengrad;
-    const dy = lat - ph.location.breitengrad;
-    const dist = dx**2 + dy**2; // keine echte Distanz in Metern, aber ausreichend zum Vergleich
-    return { ...ph, distanz: dist }; // erweitere jedes Parkhaus mit der Distanz
-  });
-
-  // Schritt 2: Sortiere nach Distanz
-  distanzen.sort((a, b) => a.distanz - b.distanz);
-
-  // Schritt 3: Gib die 3 nächsten Parkhäuser aus
-  document.getElementById("button").style.display = "none";
-  const parkhaeuserList = document.getElementById("parkhaeuser-list");
-  parkhaeuserList.innerHTML = "";
-
-  const naechstes = distanzen.slice(0, 3);
-
-  fetch("https://data.bs.ch/api/explore/v2.1/catalog/datasets/100088/records?limit=50")
+// ========================================
+// Daten von der API laden
+// ========================================
+fetch("https://data.bs.ch/api/explore/v2.1/catalog/datasets/100088/records?limit=50")
   .then(res => res.json())
   .then(data => {
-    distanzen.slice(0, 3).forEach(ph => {
-      parkhaeuserList.innerHTML += `<div class="parkhaeuser" id="ph_${ph.id}"><h2>${data.results[ph.id].title}</h2><span id="prozentanzeige">Auslastung: ${Math.round(data.results[ph.id].auslastung * 100)}%</span><div class="progress-container"><div class="progress-bar" id="progressBar"></div></div></div>`;
-      console.log("id:", ph.id);
-      setProgress(ph.id, Math.round(data.results[ph.id].auslastung * 100));//Prozentanzeige bestimmen
-    });
+    // Nur relevante Infos extrahieren und in parkhausData speichern
+    parkhausData = data.results.map((ph, index) => ({
+      id: index, // Eigene ID (für HTML-Elemente)
+      apiIndex: index, // Position im API-Array
+      name: ph.name,
+      location: {
+        breitengrad: ph.geo_point_2d.lat,
+        laengengrad: ph.geo_point_2d.lon
+      }
+    }));
+
+    console.log("Parkhausdaten erfolgreich geladen:", parkhausData);
   })
-  .catch(err => {
-    console.error("Fehler beim Abrufen:", err);
+  .catch(error => {
+    console.error("❌ Fehler beim Laden der Standortdaten:", error);
   });
+
+// ========================================
+// Geoposition abfragen (Button-Event)
+// ========================================
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    alert("Geolocation wird von diesem Browser nicht unterstützt.");
+  }
 }
 
+// ========================================
+// Nächste Parkhäuser berechnen und anzeigen
+// ========================================
+function showPosition(position) {
+  const userLat = position.coords.latitude;
+  const userLon = position.coords.longitude;
 
+  // Distanzen zu allen Parkhäusern berechnen
+  const distanzen = parkhausData.map(ph => {
+    const dx = userLon - ph.location.laengengrad;
+    const dy = userLat - ph.location.breitengrad;
+    const dist = dx ** 2 + dy ** 2; // einfache quadratische Distanz
+    return { ...ph, distanz: dist };
+  });
 
+  // Nach Entfernung sortieren
+  distanzen.sort((a, b) => a.distanz - b.distanz);
 
+  // UI vorbereiten
+  document.getElementById("button").style.display = "none";
+  const listContainer = document.getElementById("parkhaeuser-list");
+  listContainer.innerHTML = "";
+
+  const naechste = distanzen.slice(0, 3); // Die 3 nächsten
+
+  // Aktuelle Auslastung erneut aus der API holen
+  fetch("https://data.bs.ch/api/explore/v2.1/catalog/datasets/100088/records?limit=50")
+    .then(res => res.json())
+    .then(data => {
+      naechste.forEach(ph => {
+        const apiInfo = data.results[ph.apiIndex];
+        const auslastung = Math.round(apiInfo.auslastung * 100);
+
+        // HTML für jedes Parkhaus hinzufügen
+        listContainer.innerHTML += `
+          <div class="parkhaeuser" id="ph_${ph.id}">
+            <h2>${apiInfo.title}</h2>
+            <span id="prozentanzeige">Auslastung: ${auslastung}%</span>
+            <div class="progress-container">
+              <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p>${apiInfo.status === "offen" ? "Offen" : "Geschlossen"}</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${ph.location.breitengrad},${ph.location.laengengrad}">Route</a>
+            <p>Freie Plätze: ${apiInfo.free}</p>
+          </div>
+        `;
+
+        // Balken setzen
+        setProgress(ph.id, auslastung);
+      });
+    })
+    .catch(err => {
+      console.error("Fehler beim Abrufen der Auslastungsdaten:", err);
+    });
+}
