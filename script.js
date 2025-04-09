@@ -37,8 +37,19 @@ function getLocation() {
   // Schritt 3: Gib die 3 nächsten Parkhäuser aus
   document.getElementById("button").style.display = "none";
   const parkhaeuserList = document.getElementById("parkhaeuser-list");
+  parkhaeuserList.innerHTML = "";
 
-  distanzen.slice(0, 3).forEach(ph => {
-    parkhaeuserList.innerHTML += `<div class="parkhaeuser"><p>ID: ${ph.id}, Distanz: ${ph.distanz.toFixed(8)}</p></div>`;
+  const naechstes = distanzen.slice(0, 3);
+
+  fetch("https://data.bs.ch/api/explore/v2.1/catalog/datasets/100088/records?limit=50")
+  .then(res => res.json())
+  .then(data => {
+    distanzen.slice(0, 3).forEach(ph => {
+      parkhaeuserList.innerHTML += `<div class="parkhaeuser"><p>${data.results[ph.id].title}, Auslastung: ${Math.round(data.results[ph.id].auslastung * 100)}%</p></div>`;
+      console.log("id:", ph.id);
+    });
+  })
+  .catch(err => {
+    console.error("Fehler beim Abrufen:", err);
   });
 }
