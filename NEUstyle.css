@@ -1,7 +1,17 @@
+* {
+    box-sizing: border-box;
+  }
+
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body{
     color: white;
     background-color: #B2DCFF;
-    margin: 0;
+    margin: 0 ;
     padding: 0;
 }
 
@@ -25,7 +35,9 @@ header::after{
 
 .logo{
     width: 90vw;
-    margin: 70px 20px 30px 20px;
+    max-width: 400px; 
+    margin: 40px 20px 20px 20px;
+    
 }
 
 h1{
@@ -34,8 +46,7 @@ h1{
     font-family: Arial;
     font-size: 28px;
     font-style: italic;
-    font-weight: 700;
-    margin-top: 56px;
+    margin: 56px 25px 0px 25px;
 }
 
 h2{
@@ -63,12 +74,19 @@ p{
 p::before{
     content: '';
     display: block;
-    width: 45%;
-    height: 4px;
+    max-width: 75px;
+    height: 2px;
     background-color: #055394;
     margin: auto ;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+h1.claim{
+    max-width: 400px;
+    margin: 25px auto;
+    padding: 25px;
+    text-align: center;
 }
 
 /* ==================Intro + Search===================== */
@@ -77,6 +95,7 @@ p::before{
     content: '';
     display: block;
     width: 45%;
+    max-width: 250px;
     height: 4px;
     background-color: #055394;
     margin: auto ;
@@ -86,116 +105,150 @@ p::before{
 
 .search_auto{
     width: 60%;
+    max-width: 230px; 
     margin-right: 0;
     display: flex;
-    margin: 120px auto ;
+    margin: 75px auto 60px;
 }
+
 .schranke_balken{
-    width: 28px;
+    width: 6vw;
+    max-width: 27px;
     position: absolute;
-    top: 400px;
+    top: 360px;
     right: 0;
     display: block;
     margin-left: auto;
 }
 
 .schranke{
-    height: 40px;
+    height: 10vw; 
+    max-height: 45px;
     position: absolute;
     right: 0;
-    top: 400px;
+    top: 360px;
     display: block;
     margin-left: auto;
+    transform-origin: right center;
+    transition: transform 0.3s ease;
 }
+
+.schranke:hover{
+   transform: rotate(45deg);
+}
+
 
 /* ==================Erklärteil===================== */
 
-article{
+.svg-container {
+    width: 100vw;         
+    height: 100%;        
+    overflow: hidden;     
+    position: relative;
+}
+
+    .svg-container img {
+        width: 120vw;         /* Bild ist breiter als das Fenster */
+        margin-left: -10vw;   /* verschiebe das Bild nach links, damit links was abgeschnitten ist */
+        display: block;
+        object-fit: cover;
 
 }
 
-article:last-child {
-    margin-bottom: 0px;
-  }
 
-/* =====Links===== */
-.erklär_links{
-    padding: 0px 25px 5px 60px;
-    display: block;
-}
-
-.erklär_links::before{
-    content: '';
-    display: block;
-    width: 45px;
-    height: 2px;
-    background-color: #055394;
-    margin-bottom: 10px;
-}
-
-.erklär_links_bild_1{
-    position: absolute;
-    width: 190px;
-    height: 190px;
-    right: 0px;
-    top: 80vh;
-}
-.erklär_links_bild_2{
-    position: absolute;
-    width: 190px;
-    height: 190px;
-    right: 0px;
-    top: 1126px;
-}
-
-
-.block_links{
-    display: flex;
-    align-items: center;
+/* ==================3 Parkhäuser in der Nähe===================== */
+.parkhaeuser{
     background-color: #6ABAFF;
-    margin-bottom: 75px;
-    height: 140px;
+    opacity: 85%;
+    padding: 25px;
+    border-radius: 10px;
+    margin: 32px auto;
+    width: 100%;
 }
 
-/* =====Rechts===== */
-
-.erklär_rechts{
-    padding: 0px 60px 5px 25px;
-    display: block;
-    text-align: right;
+.parkhaeuser-list{
+    flex-wrap: wrap;
 }
 
-.erklär_rechts::before{
-    content: '';
-    display: block;
-    width: 45px;
-    height: 2px;
-    background-color: #055394;
-    margin-bottom: 10px;
-    margin-left: 100vw;
+h2{
+    color: #055394;
     
 }
 
-.erklär_rechts_bild_1{
-    position: absolute;
-    width: 190px;
-    height: 190px;
-    left: 0px;
-    top: 910px;
-}
-.erklär_rechts_bild_2{
-    position: absolute;
-    width: 190px;
-    height: 190px;
-    left: 0px;
-    top: 1340px;
+.progress-container {
+  width: 100%;
+  background-color: #eee;
+  z-index: -2;
+  aspect-ratio: 200/68;
 }
 
-.block_rechts{
-    display: flex;
-    align-items: center;
-    background-color: #6ABAFF;
-    margin-bottom: 75px;
-    height: 140px;
-    justify-content: right;
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #172D3F;
+  transition: width 1s ease;
+  z-index: -1;
 }
+
+.Silhouette{
+  Width: 30vw;
+  position: absolute;
+}
+
+svg{
+  fill: #172D3F;
+}
+
+
+.auslastung::before{
+    content: '';
+    display: block;
+    max-width: 175px;
+    height: 4px;
+    background-color: #055394;
+    margin: 10px auto  ;
+    margin-top: 10px;
+}
+
+
+/* ==================Webseite===================== */
+
+.svg-cointainer_webseite{
+    display: none;
+}
+
+@media (min-width:800px) {
+   
+    .svg-container{
+        display: none;
+    }
+
+    .svg-cointainer_webseite{
+        display: contents;
+    }
+
+    h1{
+        margin: 45px 25px 0px 25px;
+    }
+
+    .search_auto{
+        margin: 40px auto 20px ;
+    }
+
+    h1.claim{
+        max-width: none;
+        margin: 25px auto;
+        padding: 25px;
+        text-align: center;
+    }
+
+    .schranke_balken{
+        top: 300px;
+    }
+
+    .schranke{
+        top: 300px;
+    }
+
+}
+
