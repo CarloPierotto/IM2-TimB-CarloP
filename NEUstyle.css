@@ -19,6 +19,8 @@ main{
     margin: 25px;
 }   
 
+/* ==================Header===================== */
+
 header{
     background-color: #ffffff;
     text-align: center;
@@ -89,7 +91,6 @@ h1.claim{
     text-align: center;
 }
 
-/* ==================Intro + Search===================== */
 
 .claim::after{
     content: '';
@@ -103,38 +104,39 @@ h1.claim{
 
 }
 
-.search_auto{
-    width: 60%;
-    max-width: 230px; 
-    margin-right: 0;
+/* ==================SUCHE Auto===================== */
+.svg_start{
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto 20px;
     display: flex;
-    margin: 75px auto 60px;
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+    padding: 25px;
+}
+
+.search_auto{
+    width: 90%;
+    max-width: 230px; 
+    min-width: 100px
+}
+
+
+
+.schranke{
+    position: absolute;
+    transform: translateX(-120px);
+    height: 10vw; 
+    max-height: 40px;
+    min-height: 20px;
+    z-index: -1;
 }
 
 .schranke_balken{
     width: 6vw;
-    max-width: 27px;
-    position: absolute;
-    top: 360px;
-    right: 0;
-    display: block;
-    margin-left: auto;
-}
-
-.schranke{
-    height: 10vw; 
-    max-height: 45px;
-    position: absolute;
-    right: 0;
-    top: 360px;
-    display: block;
-    margin-left: auto;
-    transform-origin: right center;
-    transition: transform 0.3s ease;
-}
-
-.schranke:hover{
-   transform: rotate(45deg);
+    max-width: 23px;
+    min-width: 15px;
 }
 
 
@@ -148,8 +150,8 @@ h1.claim{
 }
 
     .svg-container img {
-        width: 120vw;         /* Bild ist breiter als das Fenster */
-        margin-left: -10vw;   /* verschiebe das Bild nach links, damit links was abgeschnitten ist */
+        width: 120vw;        
+        margin-left: -10vw; 
         display: block;
         object-fit: cover;
 
@@ -157,6 +159,8 @@ h1.claim{
 
 #first_banner{
     margin-bottom: 30px;
+    width: 100%;
+    min-height: 40px;
 }
 
 /* ==================3 Parkhäuser in der Nähe===================== */
@@ -281,6 +285,12 @@ svg:hover{
     display: none;
 }
 
+@media (max-width:351px){
+    .schranke{
+        transform: translateX(-30vw);
+    }
+}
+
 @media (min-width:800px) {
    
     .svg-container{
@@ -299,25 +309,41 @@ svg:hover{
         font-size: 20;
     }
 
-    .search_auto{
-        margin: 40px auto 70px ;
-    }
-
     h1.claim{
         max-width: none;
         margin: 25px auto;
-        padding: 25px;
+        padding: 25px 0 0;
         text-align: center;
     }
 
+
+
     .schranke_balken{
-        top: 300px;
+        max-width: 27px;
+    }
+
+
+    .search_auto{
+        width: 100%;
+    }
+
+
+    .svg_start{
+        padding-left: 40px;
+        gap: 0;
+    }
+
+    .schranke_total{
+        transform: translate(-40px);
     }
 
     .schranke{
-        top: 300px;
+        bottom: 80px; 
+        right: -30px;
+        position: relative;
+        max-height: 45px;
+        transform: translateX(0);
     }
-
 
 }
 
