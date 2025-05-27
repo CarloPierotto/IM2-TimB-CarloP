@@ -1,0 +1,254 @@
+* {
+    box-sizing: border-box;
+  }
+
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body{
+    color: white;
+    background-color: #B2DCFF;
+    margin: 0 ;
+    padding: 0;
+}
+
+main{
+    margin: 25px;
+}   
+
+header{
+    background-color: #ffffff;
+    text-align: center;
+}
+
+header::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 6px;
+    background-color: #055394;
+}
+
+
+.logo{
+    width: 90vw;
+    max-width: 400px; 
+    margin: 40px 20px 20px 20px;
+    
+}
+
+h1{
+    color: #000;
+    text-align: center;
+    font-family: Arial;
+    font-size: 28px;
+    font-style: italic;
+    margin: 56px 25px 0px 25px;
+}
+
+h2{
+    color: #FFF;
+    font-family: Arial;
+    font-size: 24px;
+    font-style: italic;
+    margin-top: 9px;
+    margin-bottom: 0px;
+}
+
+p{
+    color: #000;
+    text-align: center;
+    font-family: Arial;
+    font-size: 18px;
+    font-style: italic;
+    margin: 0;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+p::before{
+    content: '';
+    display: block;
+    max-width: 75px;
+    height: 2px;
+    background-color: #055394;
+    margin: auto ;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h1.claim{
+    max-width: 400px;
+    margin: 25px auto;
+    padding: 25px;
+    text-align: center;
+}
+
+/* ==================Intro + Search===================== */
+
+.claim::after{
+    content: '';
+    display: block;
+    width: 45%;
+    max-width: 250px;
+    height: 4px;
+    background-color: #055394;
+    margin: auto ;
+    margin-top: 10px;
+
+}
+
+.search_auto{
+    width: 60%;
+    max-width: 230px; 
+    margin-right: 0;
+    display: flex;
+    margin: 75px auto 60px;
+}
+
+.schranke_balken{
+    width: 6vw;
+    max-width: 27px;
+    position: absolute;
+    top: 360px;
+    right: 0;
+    display: block;
+    margin-left: auto;
+}
+
+.schranke{
+    height: 10vw; 
+    max-height: 45px;
+    position: absolute;
+    right: 0;
+    top: 360px;
+    display: block;
+    margin-left: auto;
+    transform-origin: right center;
+    transition: transform 0.3s ease;
+}
+
+.schranke:hover{
+   transform: rotate(45deg);
+}
+
+
+/* ==================Erklärteil===================== */
+
+.svg-container {
+    width: 100vw;         
+    height: 100%;        
+    overflow: hidden;     
+    position: relative;
+}
+
+    .svg-container img {
+        width: 120vw;         /* Bild ist breiter als das Fenster */
+        margin-left: -10vw;   /* verschiebe das Bild nach links, damit links was abgeschnitten ist */
+        display: block;
+        object-fit: cover;
+
+}
+
+
+/* ==================3 Parkhäuser in der Nähe===================== */
+.parkhaeuser{
+    background-color: #6ABAFF;
+    opacity: 85%;
+    padding: 25px;
+    border-radius: 10px;
+    margin: 32px auto;
+    width: 100%;
+}
+
+.parkhaeuser-list{
+    flex-wrap: wrap;
+}
+
+h2{
+    color: #055394;
+    
+}
+
+.progress-container {
+  width: 100%;
+  background-color: #eee;
+  z-index: -2;
+  aspect-ratio: 200/68;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #172D3F;
+  transition: width 1s ease;
+  z-index: -1;
+}
+
+.Silhouette{
+  Width: 30vw;
+  position: absolute;
+}
+
+svg{
+  fill: #172D3F;
+}
+
+
+.auslastung::before{
+    content: '';
+    display: block;
+    max-width: 175px;
+    height: 4px;
+    background-color: #055394;
+    margin: 10px auto  ;
+    margin-top: 10px;
+}
+
+
+/* ==================Webseite===================== */
+
+.svg-cointainer_webseite{
+    display: none;
+}
+
+@media (min-width:800px) {
+   
+    .svg-container{
+        display: none;
+    }
+
+    .svg-cointainer_webseite{
+        display: contents;
+    }
+
+    h1{
+        margin: 45px 25px 0px 25px;
+    }
+
+    .search_auto{
+        margin: 40px auto 20px ;
+    }
+
+    h1.claim{
+        max-width: none;
+        margin: 25px auto;
+        padding: 25px;
+        text-align: center;
+    }
+
+    .schranke_balken{
+        top: 300px;
+    }
+
+    .schranke{
+        top: 300px;
+    }
+
+}
+

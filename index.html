@@ -3,11 +3,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basel Parkhäuser</title>
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="NEUstyle.css">
 </head>
+<header>
+    <img src="Bilder/Logo.png" alt="Logo" class="logo">
+    
+</header>
 <body>
     <main>
-        <h1>Baasl Paakhuus</h1>
+        <h1 class="auslastung">Auslastung in %</h1>
+        <p>Deine nächsten 3 Parkhäuser mit freien Plätzen.</p>
+
         <div class="parkhaeuser">
             <h2>Parkhaus Kunstmuseum</h2>
             <a href="https://www.google.com/maps/dir/?api=1&destination=47.5592347,7.58658"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M320-360h80v-120h140v100l140-140-140-140v100H360q-17 0-28.5 11.5T320-520v160ZM480-80q-15 0-29.5-6T424-104L104-424q-12-12-18-26.5T80-480q0-15 6-29.5t18-26.5l320-320q12-12 26.5-18t29.5-6q15 0 29.5 6t26.5 18l320 320q12 12 18 26.5t6 29.5q0 15-6 29.5T856-424L536-104q-12 12-26.5 18T480-80ZM320-320l160 160 320-320-320-320-320 320 160 160Zm160-160Z"/></svg></a>
@@ -35,6 +41,9 @@
         <div id="parkhaeuser-list"></div>
         <div id="details"></div>
     </main>
+
+    <p id="footer">Parkingbasilea - Mit uns findest du garantiert einen Parkplatz!</p>
+
     <script src="JS/script.js"></script>
 </body>
 </html>
