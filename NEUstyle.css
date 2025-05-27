@@ -109,6 +109,7 @@ h1.claim{
     width: 100%;
     max-width: 750px;
     margin: 0 auto 20px;
+    margin-top: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -123,20 +124,36 @@ h1.claim{
 }
 
 
-
 .schranke{
     position: absolute;
-    transform: translateX(-120px);
     height: 10vw; 
     max-height: 40px;
     min-height: 20px;
     z-index: -1;
+    transition: transform 0.5s ease;
+    transform-origin: right center; 
+    transform: translateX(-120px);
 }
+
 
 .schranke_balken{
     width: 6vw;
     max-width: 23px;
     min-width: 15px;
+}
+
+.search_auto:hover .schranke{
+    transform: rotate(-30deg);
+}
+
+.schranke_total{
+    position: relative;
+}
+
+
+.interaction-wrapper:hover .schranke,
+.interaction-wrapper:focus-within .schranke {
+    transform: translateX(-120px) rotate(50deg);
 }
 
 
@@ -171,7 +188,7 @@ h1.claim{
     border-radius: 10px;
     margin: 32px auto;
     width: 100%;
-    max-width: 750px;
+    max-width: 800px;
 }
 
 .parkhaeuser-list{
@@ -343,7 +360,15 @@ svg:hover{
         position: relative;
         max-height: 45px;
         transform: translateX(0);
+        z-index: -1;
     }
 
+    .interaction-wrapper:hover .schranke,
+.interaction-wrapper:focus-within .schranke {
+    transform: rotate(50deg);
 }
+
+}
+
+
 
