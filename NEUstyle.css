@@ -155,15 +155,19 @@ h1.claim{
 
 }
 
+#first_banner{
+    margin-bottom: 30px;
+}
 
 /* ==================3 Parkhäuser in der Nähe===================== */
 .parkhaeuser{
     background-color: #6ABAFF;
     opacity: 85%;
-    padding: 25px;
+    padding: 10px 15px;
     border-radius: 10px;
     margin: 32px auto;
     width: 100%;
+    max-width: 750px;
 }
 
 .parkhaeuser-list{
@@ -172,14 +176,71 @@ h1.claim{
 
 h2{
     color: #055394;
-    
+    font-family: Arial;
+    font-size: 26px;
+    font-style: normal;
 }
+
+h2.anzahl_space{
+    color: #FFF;
+    font-style: italic;
+    flex: 1;
+}
+
+h3{
+    color: #FFF;
+    font-family: Arial;
+    font-size: 20px;
+    font-style: italic;
+    margin-top: 2px;
+}
+
+h4{
+    color: #055394;
+    font-family: Arial;
+    font-size: 20px;
+    font-style: italic;
+    margin: 0;
+    margin-bottom: 2px;
+}
+
+
+.free_space{
+    display: flex;
+    align-items: end;
+}
+
+.button_maps{
+    width: 35px;
+    margin-bottom: 3px;
+}
+
+
+h2.prozent_text{
+    font-size: 10vw;
+    font-size: clamp(24px, 12vw, 100px);
+    color: fff;
+    font-style: italic;
+} 
+
+.fuellstand{
+    position: relative;
+}
+
+#prozentanzeige{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+}
+
 
 .progress-container {
   width: 100%;
   background-color: #eee;
   z-index: -2;
   aspect-ratio: 200/68;
+  position: relative;
 }
 
 .progress-bar {
@@ -196,9 +257,12 @@ h2{
 }
 
 svg{
-  fill: #172D3F;
+  fill: #055394;
 }
 
+svg:hover{
+    fill: #FFF;
+}
 
 .auslastung::before{
     content: '';
@@ -231,8 +295,12 @@ svg{
         margin: 45px 25px 0px 25px;
     }
 
+    p{
+        font-size: 20;
+    }
+
     .search_auto{
-        margin: 40px auto 20px ;
+        margin: 40px auto 70px ;
     }
 
     h1.claim{
@@ -249,6 +317,7 @@ svg{
     .schranke{
         top: 300px;
     }
+
 
 }
 
