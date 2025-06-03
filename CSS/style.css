@@ -255,6 +255,7 @@ h2.prozent_text{
     font-size: clamp(24px, 12vw, 100px);
     color: fff;
     font-style: italic;
+    margin-bottom: 30px;
 } 
 
 .fuellstand{
@@ -317,7 +318,11 @@ svg:hover{
 
 @media (max-width:351px){
     .schranke{
-        transform: translateX(-30vw);
+        transform: translateX(-30vw);    
+    }
+
+      h2.prozent_text{
+        margin-bottom: 40px;
     }
 }
 
@@ -346,7 +351,9 @@ svg:hover{
         text-align: center;
     }
 
-
+    h2.prozent_text{
+        margin-bottom: 20px;
+    }
 
     .schranke_balken{
         max-width: 27px;
