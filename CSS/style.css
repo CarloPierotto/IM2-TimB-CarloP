@@ -346,7 +346,7 @@ svg:hover{
 
     h1.claim{
         max-width: none;
-        margin: 25px auto;
+        margin: 25px auto 40px;
         padding: 25px 0 0;
         text-align: center;
     }
@@ -385,7 +385,7 @@ svg:hover{
 
     .interaction-wrapper:hover .schranke,
 .interaction-wrapper:focus-within .schranke {
-    transform: rotate(50deg);
+    transform: rotate(45deg);
 }
 
 }
