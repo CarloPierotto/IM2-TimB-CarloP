@@ -106,6 +106,7 @@ function showPosition(position) {
                   <linearGradient id="carGradient_${ph.id}" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stop-color="#1e67a3"/>
                     <stop offset="${apiInfo.auslastung_prozent}%" stop-color="#1e67a3"/>
+                    <stop offset="${apiInfo.auslastung_prozent+0.001}%" stop-color="#84cfff"/>
                     <stop offset="100%" stop-color="#84cfff"/>
                   </linearGradient>
                 </defs>
